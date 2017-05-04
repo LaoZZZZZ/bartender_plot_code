@@ -1,7 +1,6 @@
 # Multiple time point barcode simulation.
 
-setwd("/home/laozzzzz/Documents/barcode_single_end/simulation_data");
-source("/home/laozzzzz/Documents/barcode_single_end/BarcodeSimulation/util.R")
+source("util.R")
 Sys.time()
 
 
@@ -9,7 +8,7 @@ set.seed(23)
 # Some parameters that are used for this simulation.
 # Most of these parameters are consistent with that paper.
 
-n.bc = 1e2;     #number of barcodes in the initial generation.
+n.bc = 1e5;     #number of unique barcodes in the initial generation.
 number_reads =  1e2# number of reads at each time point
 generations_between_tp = 8 # Generations between two time points
 
@@ -20,6 +19,8 @@ r.e = 0.02;     #error rate
 percent_of_growth_barcode = 0.05 # percentage of barcodes that have growth advantage
 lambda_fitness = 120  # About 5% percent of barcode will have 
 fitness_coeff_range = c(0, 0.1) # range of the fitness coefficients.
+#bc.letter = c("A","C","G","T"); 
+bc.letter = c(0,1,2,3);
 
 # Generate fittness coefficient for each barcode
 fitness_coeff = rep(0.0, n.bc)
