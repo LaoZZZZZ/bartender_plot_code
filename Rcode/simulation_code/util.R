@@ -48,6 +48,7 @@ encodeDNA <- function(bp.vector) {
 }
 
 encodeDNAMatrix <- function(bc.bp.mat) {
+  #bc.bp.mat = apply(bc.bp.mat, 1, as.numeric)
   bc.num.true = 0;
   for (j in 1:ncol(bc.bp.mat)){
     bc.num.true = bc.num.true + bc.bp.mat[,j]*4^(j-1);
@@ -96,7 +97,7 @@ sequenceBarcode2 <- function(r.e, bc.true.mat) {
     }   
     bc.true.mat.batch[pos.mut]=base.mut.1;
     bc.true.mat.batch = matrix(bc.true.mat.batch, nc=len.bc);
-    
+    mode(bc.true.mat.batch) <- "numeric" 
     bc.num.i = 0;
     bc.num.i = encodeDNAMatrix(bc.true.mat.batch)
     bc.num=c(bc.num, bc.num.i);

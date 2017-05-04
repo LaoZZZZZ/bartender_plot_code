@@ -57,6 +57,7 @@ for (i.batch in 1:n.batch){
    T.index = (base.mut.0=="T"); base.mut.1[T.index]=mutT(sum(T.index));  
    bc.true.mat.batch[pos.mut]=base.mut.1;
    bc.true.mat.batch = matrix(bc.true.mat.batch, nc=len.bc);
+   mode(bc.true.mat.batch) = "numeric"
    bc.num.i = 0;
    for (j in 1:ncol(bc.true.mat.batch)){
       bc.num.i = bc.num.i + coded_dna[,bc.true.mat.batch[,j]]*4^(j-1);
